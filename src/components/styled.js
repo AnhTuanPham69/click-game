@@ -8,6 +8,23 @@ export const Wrapper = styled.div`
   border: 1px solid grey;
   border-radius: 8px;
   margin-top: 20px;
+  overflow: hidden;
+`;
+
+export const Title = styled.h1`
+  color: ${({ color }) => color || "black"};
+`;
+
+export const HeaderWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .point-wrapper,
+  .time-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export const NumberItem = styled.div`
@@ -19,10 +36,6 @@ export const NumberItem = styled.div`
   align-items: center;
   width: 40px;
   height: 40px;
-  background-color: white;
+  background-color: ${({ isWaiting }) => (isWaiting ? "red" : "white")};
   cursor: pointer;
-
-  :hover {
-    background-color: red;
-  }
 `;
