@@ -25,6 +25,12 @@ export const HeaderWrapper = styled.div`
     display: flex;
     justify-content: space-between;
   }
+
+  .point-input {
+    width: 300px;
+    border-radius: 8px;
+    padding: 10px;
+  }
 `;
 
 export const NumberItem = styled.div`

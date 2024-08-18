@@ -16,9 +16,9 @@ function App() {
   };
 
   const handleStartGame = () => {
-    setIsFirstGame(Number(number) === 0);
+    setIsFirstGame(Number(number) === 0 || number < 0);
     setResetStatus(!resetStatus);
-    setNumberOfPoint(number);
+    setNumberOfPoint(number < 0 ? 0 : number);
     setStatusGame(GAME_STATUS.inGame);
   };
 

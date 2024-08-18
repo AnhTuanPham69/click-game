@@ -26,14 +26,20 @@ function Header(props) {
 
   const handleChangePoint = (event) => {
     const value = event.target.value;
-    const isInteger = Number.isInteger(Number(value));
-    if (Number(value) > 10000) {
+    const numberValue = Number(value);
+    const isInteger = Number.isInteger(numberValue);
+    if (numberValue > 10000) {
       return;
     }
 
-    onChangePoint(value);
+    if (numberValue <= 0) {
+      onChangePoint("");
+      return;
+    }
+
+    onChangePoint(Math.abs(value));
     if (!isInteger) {
-      onChangePoint(Math.floor(Number(value)));
+      onChangePoint(Math.floor(numberValue));
     }
   };
 
@@ -53,7 +59,7 @@ function Header(props) {
   };
 
   const renderStatusTitle = () => {
-    if (GAME_STATUS.inGame === statusGame || isFirstGame || isEmpty)
+    if (GAME_STATUS.inGame === statusGame || isFirstGame)
       return <S.Title>LET&apos;S PLAY</S.Title>;
     if (GAME_STATUS.victory === statusGame)
       return <S.Title color="green">ALL CLEARED</S.Title>;
