@@ -55,10 +55,7 @@ function Container(props) {
       const newArr = randomPositions.filter((it) => it.value !== number.value);
       setWaitingPositions(newWaitingArr);
       setRandomPositions(newArr);
-    } else if (
-      waitingPositions[waitingPositions.length - 1].value + 1 !==
-      number.value
-    ) {
+    } else {
       onChangeGameStatus(GAME_STATUS.gameOver);
     }
   };
